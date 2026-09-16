@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>下肢人体解剖真实 3D 模型</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css?v=classic-20260916">
+</head>
+<body>
+  <main class="app-shell" aria-label="下肢人体解剖真实 3D 模型">
+    <div id="canvasHost" class="canvas-host" aria-hidden="true"></div>
+    <div id="tooltip" class="tooltip" role="status"></div>
+
+    <section class="panel anatomy-nav" aria-label="解剖结构导航">
+      <p class="eyebrow">Open3DModel lower limb</p>
+      <h1>下肢解剖真实 3D 模型</h1>
+      <p class="intro">真实 GLB 解剖资产，覆盖骨骼、软骨、韧带、筋膜、肌肉、动脉、静脉与神经。</p>
+
+      <div class="layer-switch" role="group" aria-label="结构类型显示开关"></div>
+
+      <div class="structure-stack" id="structureList" aria-label="结构列表"></div>
+    </section>
+
+    <section class="panel detail-panel" aria-live="polite" aria-label="部位说明">
+      <div class="detail-actions">
+        <span class="layer-badge" id="layerBadge">未选择</span>
+        <button class="ghost-button" id="toggleExtractButton" type="button" disabled>抽出部位</button>
+        <button class="ghost-button" id="hidePartButton" type="button" disabled>隐藏部位</button>
+        <button class="ghost-button" id="restoreHiddenButton" type="button" disabled>恢复隐藏</button>
+        <button class="ghost-button" id="resetSelection" type="button">复位</button>
+      </div>
+      <h2 id="partTitle">选择一个结构</h2>
+      <p id="partSummary">选中的部位会先在原位高亮，可再使用抽出按钮单独拆出观察。</p>
+
+      <dl class="fact-grid">
+        <div>
+          <dt>主要作用</dt>
+          <dd id="partRole">承载、运动、供血、回流和神经传导共同完成下肢功能。</dd>
+        </div>
+        <div>
+          <dt>位置关系</dt>
+          <dd id="partLocation">模型覆盖右侧骨盆、大腿、小腿、踝和足部。</dd>
+        </div>
+      </dl>
+
+      <div class="notes-block">
+        <h3>解剖提示</h3>
+        <ul id="partNotes">
+          <li>这是面向学习的真实 3D 解剖模型，不替代医学诊断。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="scene-label" aria-hidden="true">
+      <span>右下肢真实模型解剖台</span>
+      <span class="measurement">0 cm</span>
+      <span class="measurement">8 cm</span>
+      <span class="measurement">16 cm</span>
+      <span class="measurement">24 cm</span>
+    </div>
+
+    <div class="view-tools" role="group" aria-label="视图控制">
+      <button class="tool-button" id="panModeButton" type="button" title="切换为平移拖拽">平移</button>
+      <button class="tool-button" id="xrayModeButton" type="button" title="切换透视观察" aria-pressed="false">透视</button>
+      <button class="tool-button" id="focusButton" type="button" title="聚焦足部">聚焦</button>
+      <button class="tool-button" id="explodeAllButton" type="button" title="展开所有层级">展开</button>
+      <button class="tool-button" id="collapseButton" type="button" title="合拢模型">合拢</button>
+    </div>
+
+    <div class="legend" aria-label="图例">
+      <span><i class="swatch swatch-bone"></i>骨骼</span>
+      <span><i class="swatch swatch-muscle"></i>肌肉</span>
+      <span><i class="swatch swatch-ligament"></i>韧带/筋膜</span>
+      <span><i class="swatch swatch-artery"></i>动脉</span>
+      <span><i class="swatch swatch-vein"></i>静脉</span>
+      <span><i class="swatch swatch-nerve"></i>神经</span>
+      <span class="credit">Model: AnatomyTOOL Open3DModel, CC BY-SA 4.0</span>
+    </div>
+  </main>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="./main.js?v=classic-20260916"></script>
+</body>
+</html>
